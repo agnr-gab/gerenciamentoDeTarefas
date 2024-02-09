@@ -1,40 +1,48 @@
+## API de Gerenciamento de Tarefas
 
-##   
-API de Gerenciamento de Tarefas
-
-**Descrição:**
+### Descrição
 
 API RESTful desenvolvida em Java com Spring Boot para gerenciamento de tarefas, com foco na usabilidade pela equipe de front.
 
-**Tecnologias:**
+### Tecnologias
 
 -   Linguagem: Java
 -   Framework: Spring Boot
 -   Banco de dados: PostgreSQL
 -   Testes: JUnit
 
-**Funcionalidades:**
+### Funcionalidades
 
--   **Gerenciamento de pessoas:**
-    -   Cadastro, consulta, atualização e exclusão de pessoas.
-    -   Atribuição de tarefas a pessoas.
--   **Gerenciamento de tarefas:**
-    -   Cadastro, consulta, atualização e exclusão de tarefas.
-    -   Definição de título, descrição, prazo, departamento, duração e pessoa alocada para cada tarefa.
-    -   Controle de finalização de tarefas.
--   **Filtros e ordenação:**
-    -   Possibilidade de filtrar tarefas por departamento, pessoa alocada e status de finalização.
-    -   Ordenação de tarefas por diferentes critérios, como prazo, título e departamento.
+**Gerenciamento de Pessoas:**
 
-**Endereços da API:**
+-   Cadastro, consulta, atualização e exclusão de pessoas.
+-   Atribuição de tarefas a pessoas.
 
--   **Pessoas:**
-    -   `/api/pessoas`
-    -   `/api/pessoas/{id}`
--   **Tarefas:**
-    -   `/api/tarefas`
-    -   `/api/tarefas/{id}`
-    -   `/api/tarefas/filtrar?departamento={departamento}&pessoaAlocada={pessoaAlocada}&finalizada={finalizada}`
+**Gerenciamento de Tarefas:**
+
+-   Cadastro, consulta, atualização e exclusão de tarefas.
+-   Definição de título, descrição, prazo, departamento, duração e pessoa alocada para cada tarefa.
+-   Controle de finalização de tarefas.
+
+**Filtros e Ordenação:**
+
+-   Possibilidade de filtrar tarefas por departamento, pessoa alocada e status de finalização.
+-   Ordenação de tarefas por diferentes critérios, como prazo, título e departamento.
+
+### Endereços da API
+
+**Pessoas:**
+
+-   `/api/pessoas`
+-   `/api/pessoas/{id}`
+
+**Tarefas:**
+
+-   `/api/tarefas`
+-   `/api/tarefas/{id}`
+-   `/api/tarefas/filtrar?departamento={departamento}&pessoaAlocada={pessoaAlocada}&finalizada={finalizada}`
+
+### Modelo das Requisições
 
 **Exemplo de requisição:**
 
@@ -42,6 +50,18 @@ API RESTful desenvolvida em Java com Spring Boot para gerenciamento de tarefas, 
 GET /api/tarefas/filtrar?departamento=TI&pessoaAlocada=João&finalizada=false
 
 ```
+
+**Parâmetros:**
+
+-   `departamento`: departamento da tarefa (opcional)
+-   `pessoaAlocada`: pessoa alocada na tarefa (opcional)
+-   `finalizada`: indica se a tarefa está finalizada (opcional)
+
+**Corpo da requisição:**
+
+-   Nenhum
+
+### Modelo das Respostas
 
 **Exemplo de resposta:**
 
@@ -70,4 +90,19 @@ JSON
     "finalizada": false
   }
 ]
+
 ```
+
+
+
+
+**Atributos:**
+
+-   `id`: identificador único da tarefa
+-   `titulo`: título da tarefa
+-   `descricao`: descrição da tarefa
+-   `prazo`: data limite para a conclusão da tarefa
+-   `departamento`: departamento responsável pela tarefa
+-   `duracao`: estimativa de tempo para a conclusão da tarefa (em horas)
+-   `pessoaAlocada`: pessoa responsável pela execução da tarefa
+-   `finalizada`: indica se a tarefa foi concluída
